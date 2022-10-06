@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace REBELinBLUE\PHPStanRules\Tests\Rules;
 
 use PHPStan\Rules\Rule;
@@ -11,30 +13,39 @@ use REBELinBLUE\PHPStanRules\Rules\NoPokemonRule;
  */
 final class NoPokemonRuleTest extends RuleTestCase
 {
-    public function testRootException(): void
+    /**
+     * @test
+     */
+    public function rootException(): void
     {
         $this->analyse(
-            [__DIR__.'/../Fixtures/catching-root-exception.php'],
+            [__DIR__ . '/../Fixtures/catching-root-exception.php'],
             [
                 ['You should not catch the root level \Exception class', 5],
             ]
         );
     }
 
-    public function testRootThrowable(): void
+    /**
+     * @test
+     */
+    public function rootThrowable(): void
     {
         $this->analyse(
-            [__DIR__.'/../Fixtures/catching-root-throwable.php'],
+            [__DIR__ . '/../Fixtures/catching-root-throwable.php'],
             [
                 ['You should not catch the root level \Throwable class', 5],
             ]
         );
     }
 
-    public function testOtherException(): void
+    /**
+     * @test
+     */
+    public function otherException(): void
     {
         $this->analyse(
-            [__DIR__.'/../Fixtures/catching-other-exception.php'],
+            [__DIR__ . '/../Fixtures/catching-other-exception.php'],
             []
         );
     }
