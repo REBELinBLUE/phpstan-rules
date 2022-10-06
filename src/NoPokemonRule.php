@@ -11,6 +11,10 @@ use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
 
+/**
+ * @template TNodeType of PhpParser\Node\Stmt\Catch_
+ * @implements Rule<TNodeType>
+ */
 final class NoPokemonRule implements Rule
 {
     public function getNodeType(): string
