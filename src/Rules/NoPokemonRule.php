@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace REBELinBLUE\PHPStanRules\Rules;
 
 use Exception;
-use Throwable;
 use PhpParser\Node;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Catch_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
+use Throwable;
 
 /**
  * @implements Rule<Catch_>

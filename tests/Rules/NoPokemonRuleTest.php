@@ -21,7 +21,7 @@ final class NoPokemonRuleTest extends RuleTestCase
         $this->analyse(
             [__DIR__ . '/../Fixtures/catching-root-exception.php'],
             [
-                ['You should not catch the root level \Exception class', 5],
+                ['You should not catch the root level \Exception class', 7],
             ]
         );
     }
@@ -34,7 +34,7 @@ final class NoPokemonRuleTest extends RuleTestCase
         $this->analyse(
             [__DIR__ . '/../Fixtures/catching-root-throwable.php'],
             [
-                ['You should not catch the root level \Throwable class', 5],
+                ['You should not catch the root level \Throwable class', 7],
             ]
         );
     }
