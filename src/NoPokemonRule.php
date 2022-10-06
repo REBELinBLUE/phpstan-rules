@@ -13,6 +13,7 @@ use PHPStan\Rules\RuleErrorBuilder;
 
 /**
  * @template TNodeType of PhpParser\Node\Stmt\Catch_
+ *
  * @implements Rule<TNodeType>
  */
 final class NoPokemonRule implements Rule
