@@ -36,7 +36,7 @@ final class NoPokemonRule implements Rule
         if (\Exception::class === $part || \Throwable::class === $part) {
             return [
                 RuleErrorBuilder::message(
-                    sprintf('You should not catch \%s', $part)
+                    sprintf('You should not catch the root level \%s class', $part)
                 )->build(),
             ];
         }
