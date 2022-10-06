@@ -18,12 +18,12 @@ final class NoPokemonRuleTest extends RuleTestCase
     {
         $this->analyse(
             [
-                __DIR__ . '/../Fixtures/catching-root-exception.php',
-                __DIR__ . '/../Fixtures/catching-root-throwable.php',
-                __DIR__ . '/../Fixtures/catching-root-error.php',
-                __DIR__ . '/../Fixtures/multiple-catch-statements.php',
-                __DIR__ . '/../Fixtures/catch-without-variable.php',
-                __DIR__ . '/../Fixtures/catch-multiple-exceptions.php',
+                __DIR__ . '/../Fixtures/NoPokemonRule/catching-root-exception.php',
+                __DIR__ . '/../Fixtures/NoPokemonRule/catching-root-throwable.php',
+                __DIR__ . '/../Fixtures/NoPokemonRule/catching-root-error.php',
+                __DIR__ . '/../Fixtures/NoPokemonRule/multiple-catch-statements.php',
+                __DIR__ . '/../Fixtures/NoPokemonRule/catch-without-variable.php',
+                __DIR__ . '/../Fixtures/NoPokemonRule/catch-multiple-exceptions.php',
             ],
             [
                 ['You should not catch the root level \Exception class', 7],
@@ -40,7 +40,7 @@ final class NoPokemonRuleTest extends RuleTestCase
     public function validCatches(): void
     {
         $this->analyse(
-            [__DIR__ . '/../Fixtures/catching-other-exception.php'],
+            [__DIR__ . '/../Fixtures/NoPokemonRule/catching-other-exception.php'],
             []
         );
     }

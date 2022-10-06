@@ -15,8 +15,10 @@ use PHPStan\Rules\RuleErrorBuilder;
 use Throwable;
 
 /**
- * PHPStan rule to ensure that no code is catching the top \Exception, \Error or \Throwable class/interfaces
- * as these should be handled by global exception handlers... so unlike Pokemon we've not "Gotta Catch 'Em All"
+ * Ensure that no code is catching the top \Exception, \Error classes or the \Throwable interface
+ * as these should be handled by the global exception handler...
+ *
+ * So unlike Pokemon, we've not "Gotta Catch 'Em All"
  *
  * @implements Rule<Catch_>
  * @see \REBELinBLUE\PHPStanRules\Tests\Rules\NoPokemonRuleTest

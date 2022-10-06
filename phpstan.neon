@@ -1,9 +1,9 @@
 parameters:
     level: max
     paths:
-    - src
-    - tests
+    - src/
+    - tests/
     excludePaths:
-    - tests/Fixtures/*
+    - tests/Fixtures/
 rules:
     - REBELinBLUE\PHPStanRules\Rules\NoPokemonRule
