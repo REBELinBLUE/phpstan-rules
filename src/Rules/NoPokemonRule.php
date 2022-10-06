@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace REBELinBLUE\PHPStanRules\Rules;
 
+use Exception;
+use Throwable;
 use PhpParser\Node;
 use PhpParser\Node\Name\FullyQualified;
 use PhpParser\Node\Stmt\Catch_;
@@ -13,6 +15,7 @@ use PHPStan\Rules\RuleErrorBuilder;
 
 /**
  * @implements Rule<Catch_>
+ * @see \REBELinBLUE\PHPStanRules\Tests\Rules\NoPokemonRuleTest
  */
 final class NoPokemonRule implements Rule
 {
@@ -34,7 +37,7 @@ final class NoPokemonRule implements Rule
 
         $part = $type->parts[0];
 
-        if (\Exception::class === $part || \Throwable::class === $part) {
+        if (Exception::class === $part || Throwable::class === $part) {
             return [
                 RuleErrorBuilder::message(
                     sprintf('You should not catch the root level \%s class', $part)
