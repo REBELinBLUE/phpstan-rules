@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace REBELinBLUE\PHPStanRules;
+namespace REBELinBLUE\PHPStanRules\Rules;
 
 use PhpParser\Node;
 use PhpParser\Node\Name\FullyQualified;
@@ -12,9 +12,7 @@ use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleErrorBuilder;
 
 /**
- * @template TNodeType of PhpParser\Node\Stmt\Catch_
- *
- * @implements Rule<TNodeType>
+ * @implements Rule<Catch_>
  */
 final class NoPokemonRule implements Rule
 {
@@ -23,6 +21,9 @@ final class NoPokemonRule implements Rule
         return Catch_::class;
     }
 
+    /**
+     * @param Catch_ $node
+     */
     public function processNode(Node $node, Scope $scope): array
     {
         $type = $node->types[0];

@@ -1,5 +1,5 @@
 services:
-    - class: REBELinBLUE\PHPStanRules\REBELinBLUE\PHPStanRules\NoPokemonRule
+    - class: REBELinBLUE\PHPStanRules\REBELinBLUE\PHPStanRules\Rules\NoPokemonRule
       tags:
         - phpstan.rules.rule
 

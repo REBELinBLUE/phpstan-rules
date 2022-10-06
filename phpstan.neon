@@ -6,4 +6,4 @@ parameters:
     excludePaths:
     - tests/Fixtures/*
 rules:
-    - REBELinBLUE\PHPStanRules\NoPokemonRule
+    - REBELinBLUE\PHPStanRules\Rules\NoPokemonRule

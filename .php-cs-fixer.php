@@ -13,8 +13,6 @@ return $config
             '@PSR1' => true,
             '@PSR2' => true,
             '@PSR12' => true,
-            '@Symfony' => true,
-            '@Symfony:risky' => true,
             'array_syntax' => ['syntax' => 'short'],
             'no_useless_else' => true,
             'no_useless_return' => true,
