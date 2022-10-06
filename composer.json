@@ -1,0 +1,55 @@
+{
+    "name": "rebelinblue/phpstan-rules",
+    "description": "Additional PHPStan rules",
+    "keywords": ["static analysis"],
+    "type" : "library",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Stephen Ball",
+            "email": "stephen@rebelinblue.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "REBELinBLUE\\PHPStanRules\\" : "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "REBELinBLUE\\PHPStanRules\\Tests\\": "tests/"
+        }
+    },
+    "require" : {
+        "php": "^8.0",
+        "phpstan/phpstan": "^1.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "friendsofphp/php-cs-fixer": "^3.8",
+        "php-parallel-lint/php-parallel-lint": "^1.3"
+    },
+    "scripts": {
+        "composer-validate": "@composer validate --no-check-all --strict",
+        "cs-fix": "php-cs-fixer fix",
+        "cs": "php-cs-fixer fix --dry-run -v",
+        "analyse": "phpstan analyse",
+        "lint": "parallel-lint src tests",
+        "test": "phpunit",
+        "ci": [
+            "@composer-validate",
+            "@lint",
+            "@cs",
+            "@test",
+            "@analyse"
+        ]
+    },
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "extension.neon"
+            ]
+        }
+    }
+}
