@@ -8,7 +8,7 @@ use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->parallel();
-    
+
     $rectorConfig->importNames();
 
     $rectorConfig->paths([
@@ -24,6 +24,7 @@ return static function (RectorConfig $rectorConfig): void {
         SetList::PHP_80,
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
         PHPUnitSetList::PHPUNIT_SPECIFIC_METHOD,
+        PHPUnitSetList::PHPUNIT_EXCEPTION,
         PHPUnitSetList::PHPUNIT_YIELD_DATA_PROVIDER,
         PHPUnitSetList::PHPUNIT_90,
         PHPUnitSetList::PHPUNIT_91,
