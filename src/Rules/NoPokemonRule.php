@@ -7,7 +7,7 @@ namespace REBELinBLUE\PHPStanRules\Rules;
 use Error;
 use Exception;
 use PhpParser\Node;
-use PhpParser\Node\Name\FullyQualified;
+use PhpParser\Node\Name;
 use PhpParser\Node\Stmt\Catch_;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
@@ -36,16 +36,13 @@ final class NoPokemonRule implements Rule
     public function processNode(Node $node, Scope $scope): array
     {
         foreach ($node->types as $type) {
-            if (!$type instanceof FullyQualified) {
-                continue;
-            }
-
-            $part = $type->parts[0];
-
-            if (Exception::class === $part || Throwable::class === $part || Error::class === $part) {
+            if (Exception::class === (string) $type ||
+                Throwable::class === (string) $type ||
+                Error::class === (string) $type
+            ) {
                 return [
                     RuleErrorBuilder::message(
-                        sprintf('You should not catch the root level \%s class', $part)
+                        sprintf('You should not catch the root level %s class', $type->toCodeString())
                     )->build(),
                 ];
             }
