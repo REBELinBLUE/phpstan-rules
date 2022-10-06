@@ -29,20 +29,20 @@ final class NoPokemonRule implements Rule
      */
     public function processNode(Node $node, Scope $scope): array
     {
-        $type = $node->types[0];
+        foreach ($node->types as $type) {
+            if (!$type instanceof FullyQualified) {
+                continue;
+            }
 
-        if (!$type instanceof FullyQualified) {
-            return [];
-        }
+            $part = $type->parts[0];
 
-        $part = $type->parts[0];
-
-        if (Exception::class === $part || Throwable::class === $part) {
-            return [
-                RuleErrorBuilder::message(
-                    sprintf('You should not catch the root level \%s class', $part)
-                )->build(),
-            ];
+            if (Exception::class === $part || Throwable::class === $part) {
+                return [
+                    RuleErrorBuilder::message(
+                        sprintf('You should not catch the root level \%s class', $part)
+                    )->build(),
+                ];
+            }
         }
 
         return [];
