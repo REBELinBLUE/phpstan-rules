@@ -20,6 +20,7 @@ final class NoPokemonRuleTest extends RuleTestCase
             [
                 __DIR__ . '/../Fixtures/catching-root-exception.php',
                 __DIR__ . '/../Fixtures/catching-root-throwable.php',
+                __DIR__ . '/../Fixtures/catching-root-error.php',
                 __DIR__ . '/../Fixtures/multiple-catch-statements.php',
                 __DIR__ . '/../Fixtures/catch-without-variable.php',
                 __DIR__ . '/../Fixtures/catch-multiple-exceptions.php',
@@ -27,6 +28,7 @@ final class NoPokemonRuleTest extends RuleTestCase
             [
                 ['You should not catch the root level \Exception class', 7],
                 ['You should not catch the root level \Throwable class', 7],
+                ['You should not catch the root level \Error class', 7],
                 ['You should not catch the root level \Exception class', 8],
                 ['You should not catch the root level \Exception class', 7],
                 ['You should not catch the root level \Exception class', 7],
